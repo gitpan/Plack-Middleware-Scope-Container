@@ -3,13 +3,13 @@ abstract: 'per-request container '
 author:
   - 'Masahiro Nagano <kazeburo {at} gmail.com>'
 build_requires:
-  ExtUtils::MakeMaker: 6.36
   Test::More: 0
 configure_requires:
-  ExtUtils::MakeMaker: 6.36
-distribution_type: module
-dynamic_config: 1
-generated_by: 'Module::Install version 1.06'
+  CPAN::Meta: 0
+  CPAN::Meta::Prereqs: 0
+  Module::Build: 0.38
+dynamic_config: 0
+generated_by: 'Minilla/v0.5.6, CPAN::Meta::Converter version 2.130880'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -17,14 +17,26 @@ meta-spec:
 name: Plack-Middleware-Scope-Container
 no_index:
   directory:
-    - inc
     - t
     - xt
+    - inc
+    - share
+    - eg
+    - examples
+    - author
+provides:
+  Plack::Middleware::Scope::Container:
+    file: lib/Plack/Middleware/Scope/Container.pm
+    version: 0.04
 requires:
   Plack: 0.9982
   Scope::Container: 0.03
   parent: 0
 resources:
-  license: http://dev.perl.org/licenses/
+  bugtracker: https://github.com/kazeburo/Plack-Middleware-Scope-Container/issues
+  homepage: https://github.com/kazeburo/Plack-Middleware-Scope-Container
   repository: git://github.com/kazeburo/Plack-Middleware-Scope-Container.git
-version: 0.03
+version: 0.04
+x_contributors:
+  - 'motemen <motemen@gmail.com>'
+  - 'Masahiro Nagano <kazeburo@gmail.com>'

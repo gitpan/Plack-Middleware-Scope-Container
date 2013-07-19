@@ -6,7 +6,7 @@ use parent qw(Plack::Middleware);
 use Scope::Container;
 use Plack::Util;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 sub call {
     my ( $self, $env) = @_;
@@ -14,6 +14,10 @@ sub call {
     my $res = $self->app->($env);
     Plack::Util::response_cb($res, sub {
         my $res = shift;
+        if ( defined $res->[2] ) {
+            undef $container;
+            return;
+        }
         return sub {
             my $chunk = shift;
             if ( ! defined $chunk ) {
